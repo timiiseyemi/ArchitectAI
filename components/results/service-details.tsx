@@ -1,6 +1,7 @@
 "use client"
 
 import AwsIcon from "./aws-icon"
+import { awsServiceData } from "@/lib/aws/service-data"
 
 type Props = {
   service: string | null
@@ -13,6 +14,7 @@ export default function ServiceDetails({
 }: Props) {
   if (!service) return null
 
+const data = awsServiceData[service]
   return (
     <div className="fixed inset-0 z-50 flex justify-end bg-black/40">
 
@@ -51,11 +53,9 @@ export default function ServiceDetails({
               Why ArchitectAI selected it
             </h3>
 
-            <p className="text-muted-foreground">
-              This service is recommended because it best
-              fits the architecture requirements generated
-              for your application.
-            </p>
+            <p className="text-muted-foreground leading-7">
+  {data?.description}
+</p>
 
           </section>
 
@@ -65,13 +65,39 @@ export default function ServiceDetails({
               Common Use Cases
             </h3>
 
-            <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
-              <li>Scalable cloud applications</li>
-              <li>Production workloads</li>
-              <li>AWS best practices</li>
-            </ul>
+           <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
+  {data?.bestFor.map((item) => (
+    <li key={item}>{item}</li>
+  ))}
+</ul>
 
           </section>
+          <section>
+  <h3 className="mb-2 font-semibold">
+    Pricing Model
+  </h3>
+
+  <p className="text-muted-foreground">
+    {data?.pricing}
+  </p>
+</section>
+
+<section>
+  <h3 className="mb-2 font-semibold">
+    AWS Well-Architected Benefits
+  </h3>
+
+  <div className="flex flex-wrap gap-2">
+    {data?.benefits.map((benefit) => (
+      <span
+        key={benefit}
+        className="rounded-full bg-indigo-50 px-3 py-1 text-sm font-medium text-indigo-700"
+      >
+        {benefit}
+      </span>
+    ))}
+  </div>
+</section>
 
         </div>
 

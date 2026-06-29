@@ -108,7 +108,7 @@ export default function ArchitectureDiagram({
 
           target,
 
-          type: "bezier",
+          type: "smoothstep",
 
           animated: true,
 
@@ -121,8 +121,8 @@ export default function ArchitectureDiagram({
 
           style: {
             stroke: "#4f46e5",
-            strokeWidth: 3,
-            strokeDasharray: "6 4",
+            strokeWidth: 2.5,
+            
           },
         })
       }
@@ -183,8 +183,8 @@ export default function ArchitectureDiagram({
 
               style: {
                 stroke: "#4f46e5",
-                strokeWidth: 3,
-                strokeDasharray: "6 4",
+                strokeWidth: 2.5,
+                
               },
 
               markerEnd: {

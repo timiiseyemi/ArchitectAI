@@ -48,28 +48,7 @@ The response MUST exactly follow this structure.
         "DynamoDB"
       ],
 
-      "serviceDetails": {
-  "CloudFront": {
-    "description": "Brief description.",
-    "whySelected": "Explain why THIS service was chosen for THIS project.",
-    "pricing": "Short pricing summary.",
-    "pros": [
-      "...",
-      "...",
-      "..."
-    ],
-    "cons": [
-      "...",
-      "..."
-    ],
-    "bestPractices": [
-      "...",
-      "...",
-      "..."
-    ],
-    "documentation": "Official AWS documentation URL"
-  }
-},
+     
 
       "diagram": {
         "nodes": [
@@ -130,26 +109,20 @@ Use only real AWS services.
 
 Never invent service names.
 
-For every service listed in the "services" array,
-also create an entry inside "serviceDetails".
+For each architecture, return only:
 
-The keys of "serviceDetails" MUST exactly match the
-service names inside "services".
-
-Each service must contain:
-
+- name
+- score
+- monthlyCost
 - description
-- whySelected
-- pricing
-- pros
-- cons
-- bestPractices
-- documentation
+- services
+- diagram
+- reasoning
+- deployment
 
-The "whySelected" field MUST be specific to the user's
-project requirements.
+Do not include serviceDetails.
 
-Documentation links MUST use docs.aws.amazon.com.
+The frontend already contains AWS service metadata.
 
 Project Information
 

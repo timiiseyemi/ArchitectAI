@@ -31,6 +31,7 @@ const setResult = useGenerationStore(
 
   const [isGenerating, setIsGenerating] = useState(false)
   const [generationCompleted, setGenerationCompleted] = useState(false)
+  const [progress, setProgress] = useState(0)
 
   const nextStep = () => {
     if (currentStep < 4) {
@@ -45,9 +46,26 @@ const setResult = useGenerationStore(
   }
 
   const generateArchitecture = async () => {
-    try {
-        setGenerationCompleted(false)   
+  try {
+      setGenerationCompleted(false)
+
+      setProgress(5)
+
       setIsGenerating(true)
+
+      const progressInterval = setInterval(() => {
+        setProgress((prev) => {
+          if (prev >= 90) return prev
+
+          if (prev < 30) return prev + 8
+
+          if (prev < 60) return prev + 5
+
+          if (prev < 80) return prev + 2
+
+          return prev + 1
+        })
+      }, 400)
 
       const response = await fetch("/api/generate", {
         method: "POST",
@@ -59,6 +77,10 @@ const setResult = useGenerationStore(
 
       const result = await response.json()
 
+clearInterval(progressInterval)
+
+setProgress(100)
+
 console.log(result)
 
 setResult(result.response)
@@ -66,8 +88,9 @@ setResult(result.response)
 setGenerationCompleted(true)
 
 await new Promise((resolve) =>
-  setTimeout(resolve, 1200)
+  setTimeout(resolve, 700)
 )
+setProgress(0)
 
 router.push("/results")
 
@@ -82,7 +105,11 @@ router.push("/results")
 
   return (
     <>
-      <GenerationLoading visible={isGenerating} completed={generationCompleted} />
+      <GenerationLoading
+  visible={isGenerating}
+  completed={generationCompleted}
+  progress={progress}
+/>
 
       <div className="mx-auto max-w-5xl p-10">
         <h1 className="text-4xl font-semibold">

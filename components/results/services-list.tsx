@@ -1,6 +1,7 @@
 "use client"
 
 import AwsIcon from "./aws-icon"
+import { awsServiceData } from "@/lib/aws/service-data"
 
 type Props = {
   services: string[]
@@ -11,9 +12,9 @@ export default function ServicesList({
 }: Props) {
   return (
     <section>
-      <h2 className="mb-6 text-2xl font-semibold">
-        AWS Services
-      </h2>
+     <h2 className="mb-6 text-2xl font-semibold">
+  AWS Services
+</h2>
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => (
@@ -37,11 +38,10 @@ export default function ServicesList({
               </div>
             </div>
 
-            <p className="text-sm leading-6 text-muted-foreground">
-              Recommended by ArchitectAI for this workload
-              based on scalability, security, reliability,
-              and AWS Well-Architected best practices.
-            </p>
+           <p className="text-sm leading-6 text-muted-foreground">
+  {awsServiceData[service]?.description ??
+    "Recommended by ArchitectAI for this workload."}
+</p>
           </div>
         ))}
       </div>

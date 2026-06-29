@@ -1,6 +1,5 @@
 "use client"
 
-import { useEffect, useMemo, useState } from "react"
 import {
   Brain,
   CheckCircle2,
@@ -43,32 +42,18 @@ const steps = [
 type Props = {
   visible: boolean
   completed: boolean
+  progress:number
 }
 
 export default function GenerationLoading({
   visible,
   completed,
+  progress,
 }: Props) {
-  const [activeStep, setActiveStep] = useState(0)
-
-  useEffect(() => {
-    if (!visible) {
-      setActiveStep(0)
-      return
-    }
-
-    const interval = setInterval(() => {
-      setActiveStep((prev) =>
-        prev < steps.length ? prev + 1 : prev
-      )
-    }, 1100)
-
-    return () => clearInterval(interval)
-  }, [visible])
-
-  const progress = useMemo(() => {
-    return (activeStep / steps.length) * 100
-  }, [activeStep])
+  const activeStep = Math.min(
+  Math.floor((progress / 100) * steps.length),
+  steps.length - 1
+)
 
   if (!visible) return null
 
