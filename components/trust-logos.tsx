@@ -66,29 +66,7 @@ function HostingerLogo(props: SVGProps<SVGSVGElement>) {
   )
 }
 
-function MetaLogo(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 205 60" fill="none" aria-label="Meta" {...props}>
-      <path
-        d="M11 39c6-19 14-28 25-28 16 0 28 34 43 34 10 0 16-10 23-26 5-12 11-18 20-18 15 0 28 18 38 44"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="8"
-      />
-      <text
-        x="120"
-        y="42"
-        fill="currentColor"
-        fontSize="36"
-        fontWeight="750"
-        letterSpacing="-1"
-      >
-        Meta
-      </text>
-    </svg>
-  )
-}
+
 
 function CloudflareLogo(props: SVGProps<SVGSVGElement>) {
   return (
@@ -172,30 +150,35 @@ const logos = [
   <LogoSlot key="aws" className="min-w-[170px]">
     <AWSLogo className="h-[72px] w-[170px]" />
   </LogoSlot>,
+
   <LogoSlot key="godaddy" className="min-w-[250px]">
     <GoDaddyLogo className="h-16 w-[250px]" />
   </LogoSlot>,
+
   <LogoSlot key="hostinger" className="min-w-[265px]">
     <HostingerLogo className="h-14 w-[265px]" />
   </LogoSlot>,
-  <LogoSlot key="meta" className="min-w-[205px]">
-    <MetaLogo className="h-[60px] w-[205px]" />
-  </LogoSlot>,
+
   <LogoSlot key="cloudflare" className="min-w-[270px]">
     <CloudflareLogo className="h-[58px] w-[270px]" />
   </LogoSlot>,
+
   <LogoSlot key="digitalocean" className="min-w-[290px]">
     <DigitalOceanLogo className="h-[58px] w-[290px]" />
   </LogoSlot>,
+
   <LogoSlot key="vercel">
     <VercelLogo className="h-12 w-[185px]" />
   </LogoSlot>,
+
   <LogoSlot key="github" className="min-w-[235px]">
     <GitHubLogo className="h-16 w-[235px]" />
   </LogoSlot>,
+
   <LogoSlot key="docker" className="min-w-[230px]">
     <DockerLogo className="h-[58px] w-[230px]" />
   </LogoSlot>,
+
   <LogoSlot key="kubernetes" className="min-w-[280px]">
     <KubernetesLogo className="h-16 w-[280px]" />
   </LogoSlot>,

@@ -44,7 +44,7 @@ export function Hero() {
             <Button
               size="lg"
               className="h-11 px-5 text-sm shadow-lg shadow-primary/25 transition-transform hover:-translate-y-0.5"
-              render={<a href="#" />}
+              render={<a href="/generate" />}
             >
               Generate Architecture
               <ArrowRight className="size-4" />
@@ -53,7 +53,7 @@ export function Hero() {
               variant="outline"
               size="lg"
               className="h-11 px-5 text-sm transition-colors hover:bg-accent"
-              render={<a href="#" />}
+              render={<a href="/generate" />}
             >
               <Play className="size-4" />
               Watch Demo

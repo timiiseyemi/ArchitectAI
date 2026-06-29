@@ -3,19 +3,19 @@ import { Logo } from "@/components/logo"
 const columns = [
   {
     title: "Product",
-    links: ["Features", "Templates", "Pricing", "Changelog", "Integrations"],
+    links: [
+      { label: "Features", href: "#features" },
+      { label: "Templates", href: "#templates" },
+      { label: "How it works", href: "#how-it-works" },
+    ],
   },
   {
     title: "Resources",
-    links: ["Documentation", "Guides", "API Reference", "Blog", "Community"],
+    links: [{ label: "Generate Architecture", href: "/generate" }],
   },
   {
     title: "Company",
-    links: ["About", "Careers", "Customers", "Contact", "Partners"],
-  },
-  {
-    title: "Legal",
-    links: ["Privacy", "Terms", "Security", "DPA", "Cookies"],
+    links: [{ label: "Contact", href: "/generate" }],
   },
 ]
 
@@ -38,12 +38,12 @@ export function SiteFooter() {
               </h3>
               <ul className="mt-4 space-y-3">
                 {col.links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <a
-                      href="#"
+                      href={link.href}
                       className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}

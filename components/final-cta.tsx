@@ -29,7 +29,7 @@ export function FinalCta() {
           <Button
             size="lg"
             className="h-11 bg-background px-6 text-sm text-foreground shadow-xl transition-transform hover:-translate-y-0.5 hover:bg-background/90"
-            render={<a href="#" />}
+            render={<a href="/generate" />}
           >
             Get Started Free
             <ArrowRight className="size-4" />
