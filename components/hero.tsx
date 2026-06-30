@@ -53,7 +53,7 @@ export function Hero() {
               variant="outline"
               size="lg"
               className="h-11 px-5 text-sm transition-colors hover:bg-accent"
-              render={<a href="/generate" />}
+              render={<a href="https://youtu.be/XNIb7Dl92uo" target="blank"/>}
             >
               <Play className="size-4" />
               Watch Demo
